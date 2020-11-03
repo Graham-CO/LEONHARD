@@ -2,10 +2,10 @@
 #What is the 10 001st prime number?
 
 function pushPrime()
-    i = 2
+    i = 3
     z = []
-    while length(z) < 10002
-        if isPrime(i) 
+    while length(z) < 10001
+        if isPrime(i) == true
             push!(z,i)
             i += 1
         end
@@ -13,17 +13,25 @@ function pushPrime()
     println(z)
 end
 
+#function isPrime(n)
+    #x = digits(n)
+    #if  n % 2 == 0
+        #return false
+    #elseif last(x) == 2 || last(x) == 4 || last(x) == 6 || last(x) == 8 || last(x) == 0
+        #return false
+    #else 
+        #return true
+    #end
+#end
+
 function isPrime(n)
-    x = digits(n)
-    if n == 2
-        return true  
-    elseif  n % 2 == 0
-        return false
-    elseif last(x) != 1 || last(x) != 3 || last(x) != 7 || last(x) != 9
-        return false
-    else 
-        return true
+    x::Bool = true
+    for j in 2:sqrt(n)
+        if n % j == 0
+            x = false
+        end
     end
+    return x
 end
 
 pushPrime()
