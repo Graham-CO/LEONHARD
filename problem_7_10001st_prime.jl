@@ -13,9 +13,11 @@ function pushPrime()
     println(z)
 end
 
-function isPrime(n)::Bool
+function isPrime(n)
     x = digits(n)
-    if n % 2 == 0 || n != 2
+    if n == 2
+        return true  
+    elseif  n % 2 == 0
         return false
     elseif last(x) != 1 || last(x) != 3 || last(x) != 7 || last(x) != 9
         return false
